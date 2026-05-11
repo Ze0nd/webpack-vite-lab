@@ -14,7 +14,7 @@ jobs:
       - name: Сборка Webpack
         run: |
           cd webpack-project
-          npm ci
+          npm install
           npm run build
       - name: Сохранение артефактов
         uses: actions/upload-artifact@v4
@@ -31,7 +31,7 @@ jobs:
       - name: Сборка Vite
         run: |
           cd vite-project
-          npm ci
+          npm install
           npm run build
       - name: Сохранение артефактов
         uses: actions/upload-artifact@v4
