@@ -2,7 +2,8 @@ name: Сборка проектов
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch: # Позволяет запускать вручную
+
 jobs:
   build-webpack:
     runs-on: ubuntu-latest
@@ -14,13 +15,14 @@ jobs:
       - name: Сборка Webpack
         run: |
           cd webpack-project
-          npm install
+          npm ci
           npm run build
       - name: Сохранение артефактов
         uses: actions/upload-artifact@v4
         with:
           name: webpack-build
           path: webpack-project/dist
+
   build-vite:
     runs-on: ubuntu-latest
     steps:
